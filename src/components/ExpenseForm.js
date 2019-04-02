@@ -1,7 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import { SingleDatePicker } from 'react-dates'
-import 'react-dates/initialize';
+import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
 
 export default class ExpenseForm extends React.Component {
@@ -10,32 +10,35 @@ export default class ExpenseForm extends React.Component {
         this.state = {
             amount: '',
             description: '',
+            error: '',
             note: '',
-            createdAt: moment(),
-            calendarFocused: false
+            calendarFocused: false,
+            createdAt: moment()
         }
     }
 
     handleInputChange = (e) => {
-        const target = e.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
+        const target = e.target
+        const value = target.type === 'checkbox' ? target.checked : target.value
+        const name = target.name
 
         this.setState({
             [name]: value
-        });
+        })
     }
 
     handleDateChange = (createdAt) => {
-        this.setState(() => ({ createdAt }))
+        if (createdAt) {
+            this.setState(() => ({ createdAt }))
+        }
     }
 
     handleAmountChange = (e) => {
         const amount = e.target.value
-        const amountPattern = /^\d*(\.\d{0,2})?$/
+        const amountPattern = /^\d{1,}(\.\d{0,2})?$/
         const patternMatch = amount.match(amountPattern)
         
-        if (patternMatch) {
+        if (!amount || patternMatch) {
             this.setState(() => ({ amount }))
         }
     }
@@ -44,10 +47,35 @@ export default class ExpenseForm extends React.Component {
         this.setState(() => ({ calendarFocused: focused }))
     }
 
+    handleSubmit = (e) => {
+        e.preventDefault()
+
+        if (!this.state.description || !this.state.amount) {
+            this.setState(() => ({ error: 'Please provide description and amount.' }))
+        } else {
+            const {
+                amount,
+                createdAt,
+                description,
+                note
+            } = this.state
+
+            this.setState(() => ({ error: '' }))
+
+            this.props.onSubmit({
+                amount: parseFloat(amount, 10) * 100,
+                createdAt: createdAt.valueOf(),
+                description,
+                note
+            })
+        }
+    }
+
     render() {
         return (
             <div>
-                <form>
+                {this.state.error && <p>{this.state.error}</p>}
+                <form onSubmit={this.handleSubmit}>
                     <input
                         autoFocus
                         name="description"
