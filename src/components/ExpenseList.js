@@ -10,7 +10,7 @@ const renderExpenseListItems = (expenses) => {
             <ExpenseListItem key={expense.id} {...expense} />
         ))
     } else {
-        return <p>No expenses yet.</p>
+        return <p>No expenses found.</p>
     }
 } 
 
