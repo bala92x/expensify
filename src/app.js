@@ -1,8 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 import 'normalize.css/normalize.css'
 
-import AppRouter from './routers/AppRouter';
+import AppRouter from './routers/AppRouter'
+import configureStore from './store/configureStore'
 import './styles/styles.scss'
 
-ReactDOM.render(<AppRouter />, document.getElementById('app'))
+const store = configureStore()
+
+const app = (
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>
+)
+
+ReactDOM.render(app, document.getElementById('app'))
