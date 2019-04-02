@@ -18,6 +18,10 @@ const HelpPage = () => (
     <div>Help</div>
 )
 
+const NotFoundPage = () => (
+    <div>404!</div>
+)
+
 import 'normalize.css/normalize.css'
 import './styles/styles.scss'
 
@@ -28,6 +32,7 @@ const routes = (
             <Route path="/create" component={AddExpensePage} />
             <Route path="/edit" component={EditExpensePage} />
             <Route path="/help" component={HelpPage} />
+            <Route component={NotFoundPage} />
         </Switch>
     </BrowserRouter>
 )
