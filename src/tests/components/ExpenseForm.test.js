@@ -6,12 +6,35 @@ import expenses from '../fixtures/expensesFixtures'
 
 test('should render ExpenseForm correctly', () => {
     const wrapper = shallow(<ExpenseForm />)
-
     expect(wrapper).toMatchSnapshot()
 })
 
 test('should render ExpenseForm with expense data', () => {
     const wrapper = shallow(<ExpenseForm expense={expenses[2]} />)
+    expect(wrapper).toMatchSnapshot()
+})
+
+test('should render error for invalid form submission', () => {
+    const wrapper = shallow(<ExpenseForm />)
 
     expect(wrapper).toMatchSnapshot()
+
+    wrapper.find('form').simulate('submit', {
+        preventDefault: () => {}
+    })
+
+    expect(wrapper.state('error').length).toBeGreaterThan(0)
+    expect(wrapper).toMatchSnapshot()
+})
+
+test('should set description on input change', () => {
+    const wrapper = shallow(<ExpenseForm />)
+    const value = 'New description'
+
+    wrapper.find('input').at(0).simulate('change', {
+        target: { value }
+    })
+    console.log(wrapper.state);
+    
+    expect(wrapper.state('description')).toBe(value)
 })
