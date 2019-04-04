@@ -4,7 +4,7 @@ import expenses from '../fixtures/expensesFixtures'
 
 import { AddExpensePage } from '../../components/AddExpensePage'
 
-let addExpense, history, wrapper;
+let addExpense, history, wrapper
 
 beforeEach(() => {
     addExpense = jest.fn()
