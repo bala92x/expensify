@@ -31,10 +31,65 @@ test('should set description on input change', () => {
     const wrapper = shallow(<ExpenseForm />)
     const value = 'New description'
 
-    wrapper.find('input').at(0).simulate('change', {
-        target: { value }
-    })
-    console.log(wrapper.state);
-    
+    wrapper
+        .find('input')
+        .at(0)
+        .simulate('change', {
+            target: {
+                value,
+                name: 'description'
+            }
+        })
+
     expect(wrapper.state('description')).toBe(value)
+})
+
+test('should set note on textarea change', () => {
+    const wrapper = shallow(<ExpenseForm />)
+    const value = 'New note'
+
+    wrapper
+        .find('textarea')
+        .simulate('change', {
+            target: {
+                value,
+                name: 'note'
+            }
+        })
+
+    expect(wrapper.state('note')).toBe(value)
+})
+
+test('should set amount if input is valid', () => {
+    const wrapper = shallow(<ExpenseForm />)
+    const value = '23.50'
+
+    wrapper
+        .find('input')
+        .at(1)
+        .simulate('change', {
+            target: {
+                value,
+                name: 'amount'
+            }
+        })
+
+    expect(wrapper.state('amount')).toBe(value)
+})
+
+test('should not set amount if input is invalid', () => {
+    const wrapper = shallow(<ExpenseForm />)
+    const value = '12.122'
+
+    wrapper
+        .find('input')
+        .at(1)
+        .simulate('change', {
+            target: {
+                value,
+                name: 'amount'
+            }
+        })
+
+    expect(wrapper.state('amount')).not.toBe(value)
 })
