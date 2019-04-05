@@ -1,6 +1,6 @@
 import moment from 'moment'
 
-import selectExpenses from '../../selectors/expensesSelectors'
+import selectExpenses from '../../selectors/expensesSelector'
 import expenses from '../fixtures/expensesFixtures'
 
 test('should filter by text value', () => {

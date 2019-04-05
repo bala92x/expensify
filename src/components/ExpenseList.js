@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import ExpenseListItem from './ExpenseListItem'
-import selectExpenses from '../selectors/expensesSelectors'
+import selectExpenses from '../selectors/expensesSelector'
 
 const renderExpenseListItems = (expenses) => {
     if (expenses.length > 0) {
