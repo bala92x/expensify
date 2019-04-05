@@ -10,7 +10,7 @@ module.exports = (env) => {
     return {
         entry: './src/app.js',
         output: {
-            path: publicPath,
+            path: path.join(publicPath, 'dist'),
             filename: 'bundle.js'
         },
         module: {
@@ -49,7 +49,8 @@ module.exports = (env) => {
         devServer: {
             contentBase: publicPath,
             historyApiFallback: true,
-            port: 8080
+            port: 8080,
+            publicPath: '/dist/'
         }
     }
 }
