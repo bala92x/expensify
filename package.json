@@ -4,11 +4,17 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "start": "node server/index.js",
         "build:dev": "webpack",
         "build:prod": "webpack -p --env production",
         "dev": "webpack-dev-server",
         "test": "jest --config=jest.config.json",
-        "test:watch": "jest --config=jest.config.json --watch"
+        "test:watch": "jest --config=jest.config.json --watch",
+        "heroku-postbuild": "npm run build:prod"
+    },
+    "engines": {
+        "node": "10.15.3",
+        "npm": "6.4.1"
     },
     "author": "Budavölgyi Bálint",
     "license": "ISC",
@@ -44,5 +50,8 @@
         "webpack": "^4.29.6",
         "webpack-cli": "^3.3.0",
         "webpack-dev-server": "^3.2.1"
+    },
+    "dependencies": {
+        "express": "^4.16.4"
     }
 }
