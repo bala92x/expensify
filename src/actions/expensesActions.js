@@ -1,5 +1,8 @@
 import database from '../firebase/firebase.js'
 
+
+// ADD EXPENSE
+
 export const addExpense = (expense) => ({
     type: 'ADD_EXPENSE',
     expense
@@ -33,16 +36,34 @@ export const startAddExpense = (expenseData = {}) => {
     }
 }
 
+// REMOVE EXPENSE
+
 export const removeExpense = ({ id } = {}) => ({
     type: 'REMOVE_EXPENSE',
     id
 })
+
+export const startRemoveExpense = ({ id } = {}) => {
+    return (dispatch) =>{
+        return database
+            .ref(`expenses/${id}`)
+            .remove()
+            .then(() => {
+                dispatch(removeExpense({ id }))
+            })
+    }
+}
+
+
+// EDIT EXPENSE
 
 export const editExpense = (id, updates) => ({
     type: 'EDIT_EXPENSE',
     id,
     updates
 })
+
+// SET EXPENSES
 
 export const setExpenses = (expenses) => ({
     type: 'SET_EXPENSES',
