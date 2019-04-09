@@ -33,6 +33,7 @@
         "enzyme-to-json": "^3.3.5",
         "extract-text-webpack-plugin": "^4.0.0-beta.0",
         "firebase": "^5.9.3",
+        "history": "^4.9.0",
         "jest": "^24.6.0",
         "moment": "^2.24.0",
         "node-sass": "^4.11.0",
