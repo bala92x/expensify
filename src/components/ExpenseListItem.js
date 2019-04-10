@@ -9,17 +9,17 @@ const ExpenseListItem = ({
     amount,
     createdAt,
 }) => (
-    <div>
-        <Link to={`/edit/${id}`}>
+    <Link className="list-item" to={`/edit/${id}`}>
+        <div>
             <h3>{description}</h3>
-        </Link>
-        <p>
-            {numeral(amount / 100).format('$0,0.00')}
-            -
+            <span>
+                {numeral(amount / 100).format('$0,0.00')}
+            </span>
+        </div>
+        <h3>
             {moment(createdAt).format('MMMM Do, YYYY')}
-        </p>
-
-    </div>
+        </h3>
+    </Link>
 )
 
 export default ExpenseListItem

@@ -118,9 +118,13 @@ exports[`should render ExpenseForm correctly 1`] = `
     placeholder="Add a note for your expense (optional)"
     value=""
   />
-  <button>
-    Add Expense
-  </button>
+  <div>
+    <button
+      class="button"
+    >
+      Save Expense
+    </button>
+  </div>
 </form>
 `;
 
@@ -242,9 +246,13 @@ exports[`should render ExpenseForm with expense data 1`] = `
     placeholder="Add a note for your expense (optional)"
     value=""
   />
-  <button>
-    Add Expense
-  </button>
+  <div>
+    <button
+      class="button"
+    >
+      Save Expense
+    </button>
+  </div>
 </form>
 `;
 
@@ -366,9 +374,13 @@ exports[`should render error for invalid form submission 1`] = `
     placeholder="Add a note for your expense (optional)"
     value=""
   />
-  <button>
-    Add Expense
-  </button>
+  <div>
+    <button
+      class="button"
+    >
+      Save Expense
+    </button>
+  </div>
 </form>
 `;
 
@@ -495,8 +507,12 @@ exports[`should render error for invalid form submission 2`] = `
     placeholder="Add a note for your expense (optional)"
     value=""
   />
-  <button>
-    Add Expense
-  </button>
+  <div>
+    <button
+      class="button"
+    >
+      Save Expense
+    </button>
+  </div>
 </form>
 `;

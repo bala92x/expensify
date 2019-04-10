@@ -4,20 +4,27 @@ exports[`should render Header correctly 1`] = `
 <header
   className="header"
 >
-  <nav>
-    <Link
-      className="header__title"
-      to="/dashboard"
+  <nav
+    className="content-container"
+  >
+    <div
+      className="header__content"
     >
-      <h1>
-        Expensify
-      </h1>
-    </Link>
-    <button
-      onClick={[Function]}
-    >
-      Logout
-    </button>
+      <Link
+        className="header__title"
+        to="/dashboard"
+      >
+        <h1>
+          Expensify
+        </h1>
+      </Link>
+      <button
+        className="button button--link"
+        onClick={[Function]}
+      >
+        Logout
+      </button>
+    </div>
   </nav>
 </header>
 `;
