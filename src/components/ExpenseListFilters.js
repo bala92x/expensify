@@ -46,13 +46,17 @@ export class ExpenseListFilters extends React.Component {
                 <div className="input-group">
                     <div className="input-group__item">
                         <input
+                            autoFocus
+                            className="text-input"
                             onChange={this.handleTextChange}
+                            placeholder="Search expenses"
                             type="text"
                             value={this.props.filters.text}
                         />
                     </div>
                     <div className="input-group__item">
                         <select
+                            className="select"
                             onChange={this.handleSortChange}
                             value={this.props.filters.sortBy}
                         >
