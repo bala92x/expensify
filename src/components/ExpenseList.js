@@ -10,7 +10,11 @@ const renderExpenseListItems = (expenses) => {
             <ExpenseListItem key={expense.id} {...expense} />
         ))
     } else {
-        return <p>No expenses found.</p>
+        return (
+            <div className="list-item list-item--message">
+                <span>No expenses found</span>
+            </div>
+        )
     }
 } 
 
@@ -21,7 +25,9 @@ export const ExpenseList = (props) => (
             <div className="show-for-desktop">Expense</div>
             <div className="show-for-desktop">Amount</div>
         </div>
-        {renderExpenseListItems(props.expenses)}
+        <div className="list-body">
+            {renderExpenseListItems(props.expenses)}
+        </div>
     </div>
 )
 
