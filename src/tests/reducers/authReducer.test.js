@@ -1,6 +1,6 @@
 import authReducer from '../../reducers/authReducer'
 
-const uid = 'asd7724AwefdF'
+const uid = 'asd45WnmdfuionDVwef'
 
 test('should setup default', () => {
     const state = authReducer(undefined, { type: '@@INIT' })
